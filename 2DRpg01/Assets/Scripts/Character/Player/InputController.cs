@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player
-{
     public class InputController : MonoBehaviour
     {
         public float HorizontalVal { get; private set; }
@@ -15,5 +13,5 @@ namespace Player
             VerticalVal = Input.GetAxis("Vertical");
         }
     }
-}
+
 

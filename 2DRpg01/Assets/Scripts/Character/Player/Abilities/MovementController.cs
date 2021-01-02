@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player.Abilities
-{
+
     [RequireComponent(typeof(InputController))]
     public class MovementController : MonoBehaviour
     {
@@ -42,6 +41,6 @@ namespace Player.Abilities
             transform.Translate(_inputController.HorizontalVal * Time.deltaTime * moveSpeed, _inputController.VerticalVal * Time.deltaTime * moveSpeed, 0f);
         }
     }
-}
+
 
 
