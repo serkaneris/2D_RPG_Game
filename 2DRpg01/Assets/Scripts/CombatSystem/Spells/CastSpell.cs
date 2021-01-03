@@ -5,8 +5,6 @@ using UnityEngine;
 public class CastSpell : MonoBehaviour
 {
     public GameObject spellPrefab;
-    //public float minDamage;
-    //public float maxDamage;
     public float spellSpeed = 2f;
     public float spellDamage = 10;
 
@@ -16,10 +14,11 @@ public class CastSpell : MonoBehaviour
         {
             GameObject spell = Instantiate(spellPrefab, transform.position, Quaternion.identity);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 playerPos = transform.position;
-            Vector2 direction = (mousePos - playerPos).normalized;
+            Vector2 attackerPos = transform.position;
+            Vector2 direction = (mousePos - attackerPos).normalized;
             spell.GetComponent<Rigidbody2D>().velocity = direction * spellSpeed;
             spell.GetComponent<ISpell>().SpellCasterTag = transform.tag;
+            spell.GetComponent<ISpell>().TargetTag = "Enemy";
             spell.GetComponent<ISpell>().Damage = spellDamage;
         }
     }

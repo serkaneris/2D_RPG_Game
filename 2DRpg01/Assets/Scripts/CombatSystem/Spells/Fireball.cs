@@ -6,12 +6,13 @@ public class Fireball : MonoBehaviour, ISpell
 {
 
     public string SpellCasterTag { get; set; }
+    public string TargetTag { get; set; }
     public float Damage { get; set; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print(SpellCasterTag + " fire attack to " + collision.tag);
-        if (collision.tag == "Enemy")
+        if (collision.tag == TargetTag)
         {
             var enemyHealt = collision.GetComponent<HealthController>();
             enemyHealt.DealDamage(Damage);
